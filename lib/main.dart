@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intro_slider/intro_slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.green[800],
         primarySwatch: Colors.green,
 
+
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: IntroSlider()
     );
   }
 }
