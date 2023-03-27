@@ -1,5 +1,6 @@
 import 'package:echosentry/login.dart';
 import 'package:echosentry/registration/registration.dart';
+import 'package:echosentry/shop/add_product.dart';
 import 'package:echosentry/shop/shop_dashboard.dart';
 import 'package:flutter/material.dart';
 
@@ -24,11 +25,13 @@ class MyApp extends StatelessWidget {
 
 
       ),
-      home: IntroSlider(),
+      home: LoginPage(),
       routes: {
         '/login':(context)=>LoginPage(),
         '/registration':(context)=>RegistrationPage(),
-        '/shopdashboard':(context)=>ShopDashboard()
+        '/shopdashboard':(context)=>ShopDashboard(),
+        '/intro':(context)=>IntroSlider(),
+        '/add-product':(context)=>AddProducts()
       },
 
     );

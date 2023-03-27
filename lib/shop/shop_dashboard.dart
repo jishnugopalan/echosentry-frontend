@@ -1,3 +1,4 @@
+import 'package:echosentry/shop/shopmenu.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,7 +15,9 @@ class _ShopDashboardState extends State<ShopDashboard> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
+
       ),
+      drawer: ShopMenu(menuindex: 1,),
     );
   }
 }
