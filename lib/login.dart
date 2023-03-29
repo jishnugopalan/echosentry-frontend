@@ -66,7 +66,8 @@ class _LoginPageState extends State<LoginPage> {
 
       final Response? response=await service.getUser(userid);
       if(response?.data["usertype"]=="customer"){
-        print("c");
+        Navigator.pushNamedAndRemoveUntil(context, '/customerdashboard', (route) => false);
+
 
       }
       else if(response?.data["usertype"]=="shop"){
@@ -74,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
 
       }
       else if(response?.data["usertype"]=="landowner"){
-        print("l");
+        Navigator.pushNamedAndRemoveUntil(context, '/landdashboard', (route) => false);
 
       }
 
@@ -112,7 +113,8 @@ class _LoginPageState extends State<LoginPage> {
        await storage.write(key: "userid", value: userid);
        // Map<String, dynamic> s=jsonDecode(response.data);
        if(response.data["user"]["usertype"]=="customer"){
-         print("c");
+         Navigator.pushNamedAndRemoveUntil(context, '/customerdashboard', (route) => false);
+
 
        }
        else if(response.data["user"]["usertype"]=="shop"){
@@ -120,7 +122,8 @@ class _LoginPageState extends State<LoginPage> {
 
        }
        else if(response.data["user"]["usertype"]=="landowner"){
-         print("l");
+         Navigator.pushNamedAndRemoveUntil(context, '/landdashboard', (route) => false);
+
 
        }
 
