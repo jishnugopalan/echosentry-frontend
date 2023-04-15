@@ -11,6 +11,7 @@ class ShopMenu extends StatefulWidget {
 class _ShopMenuState extends State<ShopMenu> {
   bool isHome=false;
   bool isAddProduct=false;
+  bool isOrder=false;
   final storage = FlutterSecureStorage();
 
   @override
@@ -21,6 +22,10 @@ class _ShopMenuState extends State<ShopMenu> {
     }
     else if(widget.menuindex==2){
       isAddProduct=true;
+
+    }
+    else if(widget.menuindex==3){
+      isOrder=true;
 
     }
 
@@ -67,6 +72,26 @@ class _ShopMenuState extends State<ShopMenu> {
             },
 
             selected:isAddProduct,
+            selectedTileColor: Colors.black12,
+            selectedColor: Colors.green[800],
+
+          ),
+          ListTile(
+            leading: Icon(Icons.shopping_bag,),
+            title: listtileText("orders"),
+            onTap: () async {
+              setState(() {
+                isHome=false;
+                isAddProduct=false;
+                isOrder=true;
+
+              });
+              Navigator.pushNamed(context, '/viewordervendor');
+
+
+            },
+
+            selected:isOrder,
             selectedTileColor: Colors.black12,
             selectedColor: Colors.green[800],
 

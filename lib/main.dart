@@ -1,9 +1,11 @@
 import 'package:echosentry/customer/customer_dashboard.dart';
+import 'package:echosentry/customer/order.dart';
 import 'package:echosentry/landholder/land_dashboard.dart';
 import 'package:echosentry/login.dart';
 import 'package:echosentry/registration/registration.dart';
 import 'package:echosentry/shop/add_product.dart';
 import 'package:echosentry/shop/shop_dashboard.dart';
+import 'package:echosentry/shop/vieworders.dart';
 import 'package:flutter/material.dart';
 
 
@@ -36,6 +38,8 @@ class MyApp extends StatelessWidget {
         '/add-product':(context)=>AddProducts(),
         '/customerdashboard':(context)=>CustomerDashboard(),
         '/landdashboard':(context)=>LandHolderDashboard(),
+        '/order':(context)=>OrderPage(),
+        '/viewordervendor':(context)=>ViewOrderVendor()
 
       },
 
