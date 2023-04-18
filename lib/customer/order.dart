@@ -91,8 +91,8 @@ class _OrderPageState extends State<OrderPage> {
         itemCount: data.length,
         padding: EdgeInsets.all(10),
         itemBuilder: (BuildContext context, int index) {
-          String productname="";
-          productname=data[index]['productname'];
+          // String productname="";
+          // productname=data[index]['productname'];
           DateTime dateTime = DateTime.fromMicrosecondsSinceEpoch(int.parse(data[index]['timestamp']) * 1000);
           String formattedDate = DateFormat.yMd().add_Hms().add_jm().format(dateTime);
           print(formattedDate);

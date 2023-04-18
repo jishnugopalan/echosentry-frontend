@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../services/view_product_service.dart';
-import 'package:credit_card_number_validator/credit_card_number_validator.dart';
+
 
 class StartPaymentPage extends StatefulWidget {
   const StartPaymentPage({Key? key, required this.orderid, required this.productid, required this.vendorid, required this.paymentoption}) : super(key: key);
