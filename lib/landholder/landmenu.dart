@@ -30,7 +30,18 @@ class _LandMenuState extends State<LandMenu> {
             leading: Icon(Icons.home,),
             title: listtileText("Home"),
             onTap: () => {
-              //Navigator.pushNamed(context, '/shopdashboard')
+              Navigator.pushNamed(context, '/landdashboard')
+            },
+            //selected: isHome,
+            selectedTileColor: Colors.black12,
+            selectedColor: Colors.green[800],
+
+          ),
+          ListTile(
+            leading: Icon(Icons.landscape,),
+            title: listtileText("Add Land"),
+            onTap: () => {
+              Navigator.pushNamed(context, '/addland')
             },
             //selected: isHome,
             selectedTileColor: Colors.black12,

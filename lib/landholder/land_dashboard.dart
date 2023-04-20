@@ -1,3 +1,4 @@
+import 'package:echosentry/landholder/landmenu.dart';
 import 'package:flutter/material.dart';
 class LandHolderDashboard extends StatefulWidget {
   const LandHolderDashboard({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class _LandHolderDashboardState extends State<LandHolderDashboard> {
       appBar: AppBar(
         title: Text("Home"),
       ),
+      drawer: LandMenu(),
     );
   }
 }

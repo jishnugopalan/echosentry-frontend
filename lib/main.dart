@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 
 import 'introslider.dart';
+import 'landholder/addland.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
         '/customerdashboard':(context)=>CustomerDashboard(),
         '/landdashboard':(context)=>LandHolderDashboard(),
         '/order':(context)=>OrderPage(),
-        '/viewordervendor':(context)=>ViewOrderVendor()
+        '/viewordervendor':(context)=>ViewOrderVendor(),
+        '/addland':(context)=>AddLand()
 
       },
 
