@@ -34,5 +34,9 @@ class ViewProduct{
     final response=await dio.post("${url}startpayment", data:paymentdetails);
     return response;
   }
+  cancelOrder(String orderid)async{
+    final response=await dio.post("${url}cancelorder", data:{"orderid":orderid});
+    return response;
+  }
 
 }

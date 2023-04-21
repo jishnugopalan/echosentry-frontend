@@ -78,6 +78,10 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushNamedAndRemoveUntil(context, '/landdashboard', (route) => false);
 
       }
+      else if(response?.data["usertype"]=="admin"){
+        Navigator.pushNamedAndRemoveUntil(context, '/admindashboard', (route) => false);
+
+      }
 
     }on DioError catch(e){
       if (e.response != null) {
@@ -124,6 +128,10 @@ class _LoginPageState extends State<LoginPage> {
        else if(response.data["user"]["usertype"]=="landowner"){
          Navigator.pushNamedAndRemoveUntil(context, '/landdashboard', (route) => false);
 
+
+       }
+       else if(response.data["user"]["usertype"]=="admin"){
+         Navigator.pushNamedAndRemoveUntil(context, '/admindashboard', (route) => false);
 
        }
 

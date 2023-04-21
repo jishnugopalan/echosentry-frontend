@@ -48,6 +48,17 @@ class _LandMenuState extends State<LandMenu> {
             selectedColor: Colors.green[800],
 
           ),
+          ListTile(
+            leading: Icon(Icons.photo,),
+            title: listtileText("My Land"),
+            onTap: () => {
+              Navigator.pushNamed(context, '/myland-landowner')
+            },
+            //selected: isHome,
+            selectedTileColor: Colors.black12,
+            selectedColor: Colors.green[800],
+
+          ),
 
           ListTile(
             leading: Icon(Icons.logout,),

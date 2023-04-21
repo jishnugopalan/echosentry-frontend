@@ -87,98 +87,81 @@ class _CustomerDashboardState extends State<CustomerDashboard> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Container(
-          //   padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
-          //   child: Text(
-          //     'Discover',
-          //     style: TextStyle(
-          //       fontWeight: FontWeight.bold,
-          //       fontSize: 24.0,
-          //     ),
-          //   ),
-          // ),
-          // Container(
-          //   height: 200.0,
-          //   child: ListView(
-          //     scrollDirection: Axis.horizontal,
-          //     padding: EdgeInsets.all(10),
-          //     children: <Widget>[
-          //       Card(
-          //         child: Container(
-          //             decoration: BoxDecoration(
-          //               borderRadius: BorderRadius.circular(10),
-          //               color: Colors.grey[300],
-          //             ),
-          //             width: 200,
-          //             alignment: Alignment.center,
-          //
-          //
-          //             child: Container(
-          //               child: Column(
-          //                 mainAxisAlignment: MainAxisAlignment.center,
-          //                 children: [
-          //                   Icon(Icons.landscape_sharp,size: 50,),
-          //                   Text("LAND"),
-          //                 ],
-          //               ),
-          //             )
-          //         ),
-          //       ),
-          //       SizedBox(
-          //         width: 10,
-          //       ),
-          //       Card(
-          //         child: Container(
-          //             decoration: BoxDecoration(
-          //               borderRadius: BorderRadius.circular(10),
-          //               color: Colors.grey[300],
-          //             ),
-          //             width: 200,
-          //             alignment: Alignment.center,
-          //
-          //             child: Container(
-          //               child: Column(
-          //                 mainAxisAlignment: MainAxisAlignment.center,
-          //                 children: [
-          //                   Icon(Icons.agriculture,size: 50,),
-          //                   Text("VEHICLE"),
-          //                 ],
-          //               ),
-          //             )
-          //         ),
-          //       ),
-          //       SizedBox(
-          //         width: 10,
-          //       ),
-          //       Card(
-          //         child: Container(
-          //             decoration: BoxDecoration(
-          //               borderRadius: BorderRadius.circular(10),
-          //               color: Colors.grey[300],
-          //             ),
-          //             width: 200,
-          //             alignment: Alignment.center,
-          //
-          //             child: Container(
-          //               child: Column(
-          //                 mainAxisAlignment: MainAxisAlignment.center,
-          //                 children: [
-          //                   Icon(Icons.home_work,size: 50,),
-          //                   Text("PLANT NURSERY"),
-          //                 ],
-          //               ),
-          //             )
-          //         ),
-          //       ),
-          //       SizedBox(
-          //         width: 10,
-          //       ),
-          //
-          //
-          //     ],
-          //
-          //   ),
-          // ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+            child: Text(
+              'Discover',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24.0,
+              ),
+            ),
+          ),
+          Container(
+            height: 200.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.all(10),
+              children: <Widget>[
+                GestureDetector(
+                  child: Card(
+                    child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.lightBlue[100]
+                        ),
+                        width: 200,
+                        alignment: Alignment.center,
+
+
+                        child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.landscape_sharp,size: 50,),
+                              Text("LAND"),
+                            ],
+                          ),
+                        )
+                    ),
+                  ),
+                  onTap: (){
+                    Navigator.pushNamed(context, '/viewallland');
+                  },
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Card(
+                  child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.lightBlue[100],
+                      ),
+                      width: 200,
+                      alignment: Alignment.center,
+
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.account_circle_sharp,size: 50,),
+                            Text("Advisor"),
+                          ],
+                        ),
+                      )
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+
+
+
+              ],
+
+            ),
+          ),
 
           Container(
             padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),

@@ -102,6 +102,19 @@ class _PaymentPageState extends State<PaymentPage> {
 
 
   }
+  cancelOrder() async {
+    String orderid=response2!.data["_id"];
+    try{
+      final Response r=await service.cancelOrder(orderid);
+      print(r);
+      setState(() {
+        order_status="Order Cancelled";
+      });
+      showError("Order cancelled successfully", "Order Cancelled");
+    }on DioError catch(e){
+      showError("Error in order cancelling", "Oops!");
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,94 +209,99 @@ class _PaymentPageState extends State<PaymentPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Add to cart logic
-              //   },
-              //   child: Text('Add to Cart'),
-              // ),
-              ElevatedButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      String contentText = "Content of Dialog";
-                      return StatefulBuilder(
-                        builder: (context, setState) {
-                          return AlertDialog(
-                            title: Text('Payment Options'),
-                            content: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
+             if(order_status!="Order Cancelled")...[
+               ElevatedButton(
+                 onPressed: () {
+                   cancelOrder();
+                 },
+                 child: Text('Cancel Order'),
+               ),
+               SizedBox(
+                 width: 10,
+               ),
+               ElevatedButton(
+                 onPressed: () {
+                   showDialog(
+                     context: context,
+                     builder: (context) {
+                       String contentText = "Content of Dialog";
+                       return StatefulBuilder(
+                         builder: (context, setState) {
+                           return AlertDialog(
+                             title: Text('Payment Options'),
+                             content: Column(
+                               mainAxisSize: MainAxisSize.min,
+                               children: [
 
-                                SizedBox(height: 16),
+                                 SizedBox(height: 16),
 
-                                Text("Please select the payment option"),
-                                if(delevery_option=="Pick up from shop")...[
-                                  RadioListTile(
-                                    title: Text("Online Payment"),
-                                    value: "Online Payment",
+                                 Text("Please select the payment option"),
+                                 if(delevery_option=="Pick up from shop")...[
+                                   RadioListTile(
+                                     title: Text("Online Payment"),
+                                     value: "Online Payment",
 
-                                    groupValue: payment_option,
+                                     groupValue: payment_option,
 
-                                    onChanged: (value){
-                                      setState(() {
-                                        payment_option = value.toString();
-                                      });
-                                    },
+                                     onChanged: (value){
+                                       setState(() {
+                                         payment_option = value.toString();
+                                       });
+                                     },
 
-                                  ),
+                                   ),
 
-                                  RadioListTile(
-                                    title: Text("Pay at shop"),
-                                    value: "Pay at shop",
-                                    groupValue: payment_option,
-                                    onChanged: (value){
-                                      setState(() {
-                                        payment_option = value.toString();
-                                      });
-                                    },
-                                  ),
-                                ]else...[
-                                  RadioListTile(
-                                    title: Text("Online Payment"),
-                                    value: "Online Payment",
+                                   RadioListTile(
+                                     title: Text("Pay at shop"),
+                                     value: "Pay at shop",
+                                     groupValue: payment_option,
+                                     onChanged: (value){
+                                       setState(() {
+                                         payment_option = value.toString();
+                                       });
+                                     },
+                                   ),
+                                 ]else...[
+                                   RadioListTile(
+                                     title: Text("Online Payment"),
+                                     value: "Online Payment",
 
-                                    groupValue: payment_option,
+                                     groupValue: payment_option,
 
-                                    onChanged: (value){
-                                      setState(() {
-                                        payment_option = value.toString();
-                                      });
-                                    },
+                                     onChanged: (value){
+                                       setState(() {
+                                         payment_option = value.toString();
+                                       });
+                                     },
 
-                                  ),
-                                ]
+                                   ),
+                                 ]
 
-                              ],
-                            ),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text('Cancel'),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  gotoPay();
-                                },
-                                child: Text('Pay Now'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    },
-                  );
-                },
-                child: Text('Pay Now'),
-              ),
+                               ],
+                             ),
+                             actions: [
+                               TextButton(
+                                 onPressed: () {
+                                   Navigator.pop(context);
+                                 },
+                                 child: Text('Cancel'),
+                               ),
+                               ElevatedButton(
+                                 onPressed: () {
+                                   gotoPay();
+                                 },
+                                 child: Text('Pay Now'),
+                               ),
+                             ],
+                           );
+                         },
+                       );
+                     },
+                   );
+                 },
+                 child: Text('Pay Now'),
+               ),
+             ]
             ],
           ),
         ):Container(
@@ -291,10 +309,18 @@ class _PaymentPageState extends State<PaymentPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                padding: EdgeInsets.all(20),
-                child: Text("Payment Completed",style: TextStyle(color: Colors.blue,fontSize: 18,),),
-              )
+              if(order_status=="Payment Completed")...[
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text("Payment Completed",style: TextStyle(color: Colors.blue,fontSize: 18,),),
+                )
+              ]else if(order_status=="Order Cancelled")...[
+                Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text("Order Cancelled",style: TextStyle(color: Colors.blue,fontSize: 18,),),
+                )
+              ]
+
             ],
           )
         ),

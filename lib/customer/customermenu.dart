@@ -49,6 +49,28 @@ class _CustomerMenuState extends State<CustomerMenu> {
             selectedColor: Colors.green[800],
 
           ),
+          ListTile(
+            leading: Icon(Icons.photo,),
+            title: listtileText("Lands"),
+            onTap: () => {
+              Navigator.pushNamed(context, '/viewallland')
+            },
+            //selected: isHome,
+            selectedTileColor: Colors.black12,
+            selectedColor: Colors.green[800],
+
+          ),
+          ListTile(
+            leading: Icon(Icons.photo_library_rounded,),
+            title: listtileText("Connected Lands"),
+            onTap: () => {
+              Navigator.pushNamed(context, '/connected-land')
+            },
+            //selected: isHome,
+            selectedTileColor: Colors.black12,
+            selectedColor: Colors.green[800],
+
+          ),
 
           ListTile(
             leading: Icon(Icons.logout,),
