@@ -1,4 +1,5 @@
 import 'package:echosentry/admin/add_adviser.dart';
+import 'package:echosentry/admin/admin_menu.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,6 +18,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         title: Text("Admin Dashboard"),
 
       ),
+      drawer: AdminMenu(),
       body:  GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),
@@ -43,18 +45,18 @@ class _AdminDashboardState extends State<AdminDashboard> {
               );
             },
           ),
-          GestureDetector(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.grey[300],
-              ),
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(8),
-
-              child: Text("View Advisers",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
-            ),
-          ),
+          // GestureDetector(
+          //   child: Container(
+          //     decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.circular(10),
+          //       color: Colors.grey[300],
+          //     ),
+          //     alignment: Alignment.center,
+          //     padding: const EdgeInsets.all(8),
+          //
+          //     child: Text("View Advisers",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
+          //   ),
+          // ),
 
 
         ],

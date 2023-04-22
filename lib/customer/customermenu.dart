@@ -71,6 +71,17 @@ class _CustomerMenuState extends State<CustomerMenu> {
             selectedColor: Colors.green[800],
 
           ),
+          ListTile(
+            leading: Icon(Icons.question_mark,),
+            title: listtileText("My Questions"),
+            onTap: () => {
+              Navigator.pushNamed(context, '/viewquestions')
+            },
+            //selected: isHome,
+            selectedTileColor: Colors.black12,
+            selectedColor: Colors.green[800],
+
+          ),
 
           ListTile(
             leading: Icon(Icons.logout,),

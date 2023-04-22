@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
+import 'package:echosentry/services/admin_service.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,7 +17,62 @@ class _AddAdviserState extends State<AddAdviser> {
   String _name = '';
   String _email = '';
   String _phone = '';
+  AdminService service=AdminService();
 
+  addAdviser() async {
+    String password="";
+    for(int i=0;i<_name.length;i++){
+      if(i<3){
+        password=password+_name[i];
+      }
+    }
+    for(int i=0;i<_phone.length;i++){
+      if(i>6){
+        password=password+_phone[i].toString();
+
+      }
+    }
+    print(password);
+    var adviser=jsonEncode({
+      "name":_name,
+      "email":_email,
+      "phone":_phone,
+      "password":password,
+      "usertype":"adviser"
+    });
+    try{
+      final Response res=await service.addAdviser(adviser);
+      print(res);
+      showError("Adviser registration successful", "Registration Successful");
+
+
+    }on DioError catch(e){
+      showError("Adviser registration failed", "Failed");
+    }
+
+  }
+  showError(String content,String title){
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(title),
+            content: Text(content),
+            actions: [
+              TextButton(
+                child: Text("Ok"),
+                onPressed: () {
+                  if(title=="Registration Successful"){
+                    Navigator.pushNamed(context, '/login');
+                  }
+                  else
+                    Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,9 +131,7 @@ class _AddAdviserState extends State<AddAdviser> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Form submitted successfully')),
-                      );
+                      addAdviser();
                     }
                   },
                   child: Text('Submit'),

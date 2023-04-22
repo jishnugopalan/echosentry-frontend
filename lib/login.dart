@@ -82,6 +82,10 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushNamedAndRemoveUntil(context, '/admindashboard', (route) => false);
 
       }
+      else if(response?.data["usertype"]=="adviser"){
+        Navigator.pushNamedAndRemoveUntil(context, '/adviserdashboard', (route) => false);
+
+      }
 
     }on DioError catch(e){
       if (e.response != null) {
@@ -132,6 +136,10 @@ class _LoginPageState extends State<LoginPage> {
        }
        else if(response.data["user"]["usertype"]=="admin"){
          Navigator.pushNamedAndRemoveUntil(context, '/admindashboard', (route) => false);
+
+       }
+       else if(response.data["user"]["usertype"]=="adviser"){
+         Navigator.pushNamedAndRemoveUntil(context, '/adviserdashboard', (route) => false);
 
        }
 

@@ -132,25 +132,30 @@ class _CustomerDashboardState extends State<CustomerDashboard> {
                 SizedBox(
                   width: 10,
                 ),
-                Card(
-                  child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.lightBlue[100],
-                      ),
-                      width: 200,
-                      alignment: Alignment.center,
-
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.account_circle_sharp,size: 50,),
-                            Text("Advisor"),
-                          ],
+                GestureDetector(
+                  child: Card(
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.lightBlue[100],
                         ),
-                      )
+                        width: 200,
+                        alignment: Alignment.center,
+
+                        child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.account_circle_sharp,size: 50,),
+                              Text("Advisor"),
+                            ],
+                          ),
+                        )
+                    ),
                   ),
+                  onTap: (){
+                    Navigator.pushNamed(context, '/viewalladviser');
+                  },
                 ),
                 SizedBox(
                   width: 10,

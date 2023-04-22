@@ -9,9 +9,14 @@ import 'package:echosentry/shop/vieworders.dart';
 import 'package:flutter/material.dart';
 
 
+import 'admin/add_adviser.dart';
 import 'admin/admin_dashboard.dart';
+import 'adviser/adviser_dashbord.dart';
+import 'adviser/view_questions_adviser.dart';
 import 'customer/connectedland.dart';
+import 'customer/view_all_adviser.dart';
 import 'customer/view_lands.dart';
+import 'customer/view_question.dart';
 import 'customer/viewconnectedland.dart';
 import 'introslider.dart';
 import 'landholder/addland.dart';
@@ -50,7 +55,12 @@ class MyApp extends StatelessWidget {
         '/myland-landowner':(context)=>MyLand(),
         '/viewallland':(context)=>ViewAllLAnd(),
         '/connected-land':(context)=>ConncetedLands(),
-        '/admindashboard':(context)=>AdminDashboard()
+        '/admindashboard':(context)=>AdminDashboard(),
+        '/adviserdashboard':(context)=>AdviserDashboard(),
+        '/addadviser':(context)=>AddAdviser(),
+        '/viewalladviser':(context)=>ViewAllAdviser(),
+        '/viewquestions':(context)=>ViewQuestions(),
+        '/viewquestions-adviser':(context)=>ViewQuestionsAdviser()
 
 
       },
