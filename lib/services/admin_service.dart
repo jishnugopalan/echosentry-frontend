@@ -36,4 +36,20 @@ class AdminService{
     final response = await dio.post("${url}getquestionbyid",data:{"questionid":questionid});
     return response;
   }
+  addCategory(String category)async{
+    final response = await dio.post("${url}category",data:{"category":category});
+    return response;
+  }
+  getAllCategory() async{
+    final response = await dio.post("${url}getallcategory");
+    return response;
+  }
+  addSubcategory(String subcategory)async{
+    final response = await dio.post("${url}subcategory",data:subcategory);
+    return response;
+  }
+  getSubCategory(String categoryid)async{
+    final response = await dio.post("${url}getsubcategorybyid", data: {"categoryid":categoryid});
+    return response;
+  }
 }

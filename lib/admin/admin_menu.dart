@@ -39,9 +39,20 @@ class _AdminMenuState extends State<AdminMenu> {
           ),
           ListTile(
             leading: Icon(Icons.account_circle_sharp,),
-            title: listtileText("Add adviser"),
+            title: listtileText("Add Adviser"),
             onTap: () => {
               Navigator.pushNamed(context, '/addadviser')
+            },
+            //selected: isHome,
+            selectedTileColor: Colors.black12,
+            selectedColor: Colors.green[800],
+
+          ),
+          ListTile(
+            leading: Icon(Icons.group,),
+            title: listtileText("View Advisers"),
+            onTap: () => {
+              Navigator.pushNamed(context, '/viewadvisersadmin')
             },
             //selected: isHome,
             selectedTileColor: Colors.black12,
@@ -59,8 +70,6 @@ class _AdminMenuState extends State<AdminMenu> {
                   .pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
 
             },
-
-
             selectedColor: Colors.green[800],
 
           ),

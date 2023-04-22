@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 
 
 import 'admin/add_adviser.dart';
+import 'admin/addcategory.dart';
+import 'admin/addsubcategory.dart';
 import 'admin/admin_dashboard.dart';
+import 'admin/view_advisers.dart';
 import 'adviser/adviser_dashbord.dart';
 import 'adviser/view_questions_adviser.dart';
 import 'customer/connectedland.dart';
@@ -60,8 +63,10 @@ class MyApp extends StatelessWidget {
         '/addadviser':(context)=>AddAdviser(),
         '/viewalladviser':(context)=>ViewAllAdviser(),
         '/viewquestions':(context)=>ViewQuestions(),
-        '/viewquestions-adviser':(context)=>ViewQuestionsAdviser()
-
+        '/viewquestions-adviser':(context)=>ViewQuestionsAdviser(),
+        '/viewadvisersadmin':(context)=>ViewAdviserAdmin(),
+        '/addcategory':(context)=>AddCategoryForm(),
+        '/addsubcategory':(context)=>AddSubcategoryForm()
 
       },
 
